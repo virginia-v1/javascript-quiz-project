@@ -28,13 +28,30 @@ class Quiz {
     }
 
     // 5. checkAnswer(answer)
+    checkAnswer(answer){
+     if ( answer === this.questions[this.currentQuestionIndex].answer){
+      
+      this.correctAnswers++
+      
+     }
+
+    }
 
     // 6. hasEnded()
+    hasEnded(){
+      if (this.currentQuestionIndex < this.questions.length ){ return false
+
+      }else if ( this.currentQuestionIndex == this.questions.length){
+
+         return true 
+      }
+
+    }
 }
 
-const testQuestions = ["question1", "question2", "question3", "question4", "question5", "question6", "question7"];
+/* const testQuestions = ["question1", "question2", "question3", "question4", "question5", "question6", "question7"];
       // Instantiate a new Quiz object with the test questions
       const quiz = new Quiz(testQuestions, 60, 60);
       // Call the shuffleQuestions() method to shuffle the questions array in the quiz
-      console.log(quiz.shuffleQuestions());
+      console.log(quiz.shuffleQuestions()); */
       

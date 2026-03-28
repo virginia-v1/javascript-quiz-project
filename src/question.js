@@ -8,8 +8,26 @@ class Question {
 
     // 2. shuffleChoices()
     shuffleChoices(){
-    const number = Math.floor (Math.random()*this.choices.length)
-    return this.choices[number];
+
+      let shuffledArray = []
+
+        let array = this.choices
+       
+
+
+      for(let i = 0; i< array.length  ;i++ ){
+
+       const x = Math.floor(Math.random() * array.length  )
+        
+        [array[i] , array[x]] = [array[x] , array[i]]
+
+      }
+    
+
+
+    return array ;
+
+
 }
     
 }
