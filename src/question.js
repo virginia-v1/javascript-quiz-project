@@ -8,24 +8,14 @@ class Question {
 
     // 2. shuffleChoices()
     shuffleChoices(){
+      
+      
+ this.choices= this.choices.reduce((acc, item )=>{
+let index = Math.floor(Math.random() * acc.length+1 )
+acc.splice(index,0,item)
+return acc 
 
-      let shuffledArray = []
-
-        let array = this.choices
-       
-
-
-      for(let i = 0; i< array.length  ;i++ ){
-
-       const x = Math.floor(Math.random() * array.length  )
-        
-        [array[i] , array[x]] = [array[x] , array[i]]
-
-      }
-    
-
-
-    return array ;
+},[]) 
 
 
 }
