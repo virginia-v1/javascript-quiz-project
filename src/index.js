@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //
     // 1. Get all the choice elements. You can use the `document.querySelectorAll()` method.
 
-      allChoicesElement = document.querySelectorAll('input[name="choice"]')
+      allChoicesElement = document.querySelectorAll("input[name='choice']")
     // 2. Loop through all the choice elements and check which one is selected
       // Hint: Radio input elements have a property `.checked` (e.g., `element.checked`).
       //  When a radio input gets selected the `.checked` property will be set to true.
@@ -181,16 +181,10 @@ document.addEventListener("DOMContentLoaded", () => {
        
       selectedAnswer = input.value
 
-''
+     quiz.checkAnswer(selectedAnswer);
 
-      if (selectedAnswer === quiz.questions[quiz.currentQuestionIndex].answer ) {
-        
-        
-        quiz.checkAnswer(selectedAnswer);
+     console.log(quiz.correctAnswers)
         return 
-      
-      
-      }
      
 
 
@@ -237,8 +231,10 @@ quiz.shuffleQuestions()
 
 showQuestion()
 
+
+/* adding minutes and seconds inside of the timer container text as declared line 51 to 52 */
 quiz.timeRemaining = quizDuration
-remainingTime.innerHTML = `Remaining Time: <span>${quiz.timeRemaining.toFixed(2)}</span>`
+remainingTime.innerHTML = `Remaining Time: <span>${minutes}:${seconds}</span>`
 startCountdown()
 }
 
@@ -268,7 +264,11 @@ function startCountdown(){
   console.log ("startCountdown called")
   
   const timerInterval = setInterval(() => {
-    remainingTime.innerHTML = `Remaining Time: <span>${quiz.timeRemaining.toFixed(2)}</span>`
+    
+
+    const minutes = Math.floor(quiz.timeRemaining / 60).toString().padStart(2, "0");
+  const seconds = (quiz.timeRemaining % 60).toString().padStart(2, "0");
+    remainingTime.innerHTML = `Remaining Time: <span>${minutes}:${seconds}</span>`
     ;
 
     if(quiz.timeRemaining === 0){
