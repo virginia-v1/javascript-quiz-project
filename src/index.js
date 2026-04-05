@@ -181,6 +181,9 @@ document.addEventListener("DOMContentLoaded", () => {
        
       selectedAnswer = input.value
 
+
+
+    /*   Remove unecessary if line  */
      quiz.checkAnswer(selectedAnswer);
 
      console.log(quiz.correctAnswers)
@@ -265,8 +268,9 @@ function startCountdown(){
   
   const timerInterval = setInterval(() => {
     
-
-    const minutes = Math.floor(quiz.timeRemaining / 60).toString().padStart(2, "0");
+/* Modify timer to show minutes and seconds too 
+ */   
+ const minutes = Math.floor(quiz.timeRemaining / 60).toString().padStart(2, "0");
   const seconds = (quiz.timeRemaining % 60).toString().padStart(2, "0");
     remainingTime.innerHTML = `Remaining Time: <span>${minutes}:${seconds}</span>`
     ;
